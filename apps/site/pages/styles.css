@@ -1,5 +1,8 @@
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
 /* one way to apply tailwind to css: 
 */
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities;  */
+@tailwind utilities;

@@ -1,0 +1,44 @@
+{
+  "folders": [
+	{
+		"name": "crwn-clothing",
+		"path": "../../../../crwn-clothing"
+	},
+	{
+		"name": "Code Interview",
+		"path": "../../../../Code/Code Interview"
+	},
+	{
+		"name": "CheatSheets",
+		"path": "../../../../Code/CheatSheets"
+	},
+	{
+		"name": "monsters",
+		"path": "../../../../Pictures/Saved Pictures/Monsters/Icons/New folder/Node/React/monsters"
+	},
+	{
+		"name": "discover-coffee",
+		"path": "../../../../coffeeApp/discover-coffee"
+	},
+	{
+		"name": "discover-videos",
+		"path": "../../../../Apps/Netflix/discover-videos"
+	},
+	{
+		"name": "learn-flowers",
+		"path": "../../../../Apps/Discover Plants/learn-flowers"
+	},
+	{
+		"path": "../../../../Code/FirebaseBasics"
+	},
+	{
+		"path": "../../../../Apps/About Me/aboutme"
+	},
+	{
+		"path": "../.."
+	}
+],
+  "settings": {
+    "prettier.useTabs": true
+  }
+}
