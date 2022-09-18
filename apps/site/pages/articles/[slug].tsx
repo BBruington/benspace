@@ -4,8 +4,10 @@ import fs from 'fs';
 import { join } from 'path';
 import styles from './articles.module.css';
 import {
-  getParsedFileContentBySlug
-} from '@benspace/markdown'
+  getParsedFileContentBySlug,
+  MarkdownRenderingResult,
+  renderMarkdown,
+} from '@benspace/markdown';
 
 interface ArticleProps extends ParsedUrlQuery {
   slug: string;
@@ -30,6 +32,8 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({
     },
   };
 };
+
+
 
 export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
   const paths = fs
