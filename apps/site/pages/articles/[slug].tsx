@@ -15,7 +15,23 @@ interface ArticleProps extends ParsedUrlQuery {
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
-export const getStaticProps: GetStaticProps<ArticleProps> = async ({
+export function Article({ frontMatter, html }) {
+  return (
+    <div className="md:container md:mx-auto">
+      <article>
+        <h1 className="text-3xl font-bold hover:text-gray-700 pb-4">
+          {frontMatter.title}
+        </h1>
+        <div>by {frontMatter.author.name}</div>
+        <hr />
+
+        <main dangerouslySetInnerHTML={{ __html: html }} />
+      </article>
+    </div>
+  );
+}
+
+export const getStaticProps: GetStaticProps<MarkdownRenderingResult> = async ({
   params,
 }: {
   params: ArticleProps;
@@ -26,9 +42,13 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({
     POSTS_PATH
   );
 
+  // generate HTML
+  const renderedHTML = await renderMarkdown(articleMarkdownContent.content);
+
   return {
     props: {
-      slug: params.slug,
+      frontMatter: articleMarkdownContent.frontMatter,
+      html: renderedHTML,
     },
   };
 };
@@ -39,7 +59,7 @@ export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
   const paths = fs
     .readdirSync(POSTS_PATH)
     // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ''))
+    .map((path) => path.replace(/\.md?$/, ''))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
 
@@ -48,3 +68,5 @@ export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
     fallback: false,
   };
 };
+
+export default Article;

@@ -1,8 +1,5 @@
-import styles from './index.module.css';
+import styles from './about.module.css';
 import { GetStaticProps } from 'next';
-
-/* eslint-disable-next-line */
-export interface AboutProps {}
 
 export interface AboutProps {
   name: string;
