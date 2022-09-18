@@ -6,6 +6,6 @@
     "allowSyntheticDefaultImports": true,
     "types": ["node"]
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "src/lib/markdownToHtml.js"],
   "exclude": ["jest.config.ts", "**/*.spec.ts"]
 }
