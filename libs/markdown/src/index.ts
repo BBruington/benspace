@@ -1,5 +1,5 @@
-export * from './lib/types';
 export * from './lib/markdown';
+export * from './lib/types';
 
 /*
 Note: The index.ts of every Nx library is like a public API 

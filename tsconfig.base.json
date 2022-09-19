@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@benspace/markdown": ["libs/markdown/src/index.ts"]
+      "@benspace/markdown": ["libs/markdown/src/index.ts"],
+      "@benspace/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

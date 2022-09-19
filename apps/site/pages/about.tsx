@@ -5,14 +5,6 @@ export interface AboutProps {
   name: string;
 }
 
-export const getStaticProps: GetStaticProps<AboutProps> = async (context) => {
-  return {
-    props: {
-      name: 'Ben'
-    },
-  };
-};
-
 export function About(props: AboutProps) {
   return (
     <div className={styles['container']}>
@@ -20,5 +12,13 @@ export function About(props: AboutProps) {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<AboutProps> = async (context) => {
+  return {
+    props: {
+      name: 'Ben'
+    },
+  };
+};
 
 export default About;
