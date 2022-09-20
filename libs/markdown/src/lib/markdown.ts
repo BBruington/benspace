@@ -14,7 +14,7 @@ export const getParsedFileContentBySlug = (
   slug: string,
   postsPath: string
 ): MarkdownDocument => {
-  const postFilePath = join(postsPath, `${slug}.md`);
+  const postFilePath = join(postsPath, `${slug}.mdx`);
   const fileContents = fs.readFileSync(postFilePath);
 
   const { data, content } = matter(fileContents);

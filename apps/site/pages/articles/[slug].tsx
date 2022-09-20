@@ -61,7 +61,7 @@ export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
   const paths = fs
     .readdirSync(POSTS_PATH)
     // Remove file extensions for page paths
-    .map((path) => path.replace(/\.md?$/, ''))
+    .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
 
