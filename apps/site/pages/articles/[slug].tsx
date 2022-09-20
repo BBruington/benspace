@@ -3,6 +3,8 @@ import { ParsedUrlQuery } from 'querystring';
 import fs from 'fs';
 import { join } from 'path';
 import styles from './articles.module.css';
+import { MDXRemote } from 'next-mdx-remote';
+import { mdxElements } from '@benspace/shared/mdx-elements';
 import {
   getParsedFileContentBySlug,
   MarkdownRenderingResult,
@@ -25,7 +27,7 @@ export function Article({ frontMatter, html }) {
         <div>by {frontMatter.author.name}</div>
         <hr />
 
-        <main dangerouslySetInnerHTML={{ __html: html }} />
+        <MDXRemote {...html} components={mdxElements} />
       </article>
     </div>
   );
