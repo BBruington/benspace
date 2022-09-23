@@ -14,4 +14,10 @@ const nextConfig = {
   },
 };
 
-module.exports = withNx(nextConfig);
+module.exports = withNx({
+  
+  // adding a env variable with Next
+  env: {
+      articleMarkdownPath: '_articles',
+  },
+});
