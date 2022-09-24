@@ -1,23 +1,16 @@
-//@ts-check
-
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { withNx } = require('@nrwl/next/plugins/with-nx');
-
-/**
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
- **/
-const nextConfig = {
-  nx: {
-    // Set this to true if you would like to to use SVGR
-    // See: https://github.com/gregberge/svgr
-    svgr: false,
-  },
-};
+const withNx = require('@nrwl/next/plugins/with-nx');
 
 module.exports = withNx({
-  
-  // adding a env variable with Next
-  env: {
-      articleMarkdownPath: '_articles',
+  nx: {
+    // Set this to false if you do not want to use SVGR
+    // See: https://github.com/gregberge/svgr
+    svgr: true,
   },
+
+  // just for demo purpose. The key is specified in the
+  // global `.env.local` file.
+  // env: {
+  //   articleMarkdownPath: '_articles',
+  // },
 });

@@ -1,14 +1,8 @@
-import { MarkdownDocument } from './types';
-//import { markdownToHtml } from './markdownToHtml';
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { MarkdownDocument } from './types';
 import { serialize } from 'next-mdx-remote/serialize';
-
-
-export function markdown(): string {
-  return 'markdown';
-}
 
 export const getParsedFileContentBySlug = (
   slug: string,

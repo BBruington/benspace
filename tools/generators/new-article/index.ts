@@ -1,4 +1,3 @@
-// tools/generators/new-article/index.ts
 import {
   formatFiles,
   generateFiles,

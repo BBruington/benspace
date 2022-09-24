@@ -1,21 +1,19 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { join } from 'path';
 import { ParsedUrlQuery } from 'querystring';
 import fs from 'fs';
-import { join } from 'path';
-import styles from './articles.module.css';
-import { MDXRemote } from 'next-mdx-remote';
-import { mdxElements } from '@benspace/shared/mdx-elements';
+
 import {
   getParsedFileContentBySlug,
-  MarkdownRenderingResult,
   renderMarkdown,
+  MarkdownRenderingResult,
 } from '@benspace/markdown';
+import { MDXRemote } from 'next-mdx-remote';
+import { mdxElements } from '@benspace/shared/mdx-elements';
 
 interface ArticleProps extends ParsedUrlQuery {
   slug: string;
 }
-
-const POSTS_PATH = join(process.cwd(), process.env.articleMarkdownPath);
 
 export function Article({ frontMatter, html }) {
   return (
@@ -38,6 +36,8 @@ export const getStaticProps: GetStaticProps<MarkdownRenderingResult> = async ({
 }: {
   params: ArticleProps;
 }) => {
+  const POSTS_PATH = join(process.cwd(), process.env.articleMarkdownPath);
+
   // read markdown file into content and frontmatter
   const articleMarkdownContent = getParsedFileContentBySlug(
     params.slug,
@@ -55,9 +55,9 @@ export const getStaticProps: GetStaticProps<MarkdownRenderingResult> = async ({
   };
 };
 
-
-
 export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
+  const POSTS_PATH = join(process.cwd(), process.env.articleMarkdownPath);
+
   const paths = fs
     .readdirSync(POSTS_PATH)
     // Remove file extensions for page paths
